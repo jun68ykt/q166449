@@ -37,7 +37,7 @@ SettingsPage.propTypes = {
 
 // 親コンポーネント
 class App extends Component {
-    state = {scores: []};
+    state = { scores: [], index: 0 };
     scoreItems = [];
 
     // タブの描画
@@ -66,7 +66,12 @@ class App extends Component {
     };
 
     render() {
-        return <Tabbar renderTabs={this.renderTabs} />;
+        return (
+            <Tabbar
+                renderTabs={this.renderTabs}
+                onPreChange={({ index }) => this.setState({ index })}
+                index={this.state.index}
+            />);
     }
 }
 
