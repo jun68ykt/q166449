@@ -35,6 +35,8 @@ SettingsPage.propTypes = {
     ),
 };
 
+const FORTUNES = ['大吉', '吉', '中吉', '小吉', '末吉', '凶', '大凶'];
+
 // 親コンポーネント
 class App extends Component {
     state = { scores: [], index: 0 };
@@ -56,10 +58,9 @@ class App extends Component {
 
     // HomePage タブのボタンクリックでイベント発火
     handleOnClick = () => {
-        const fortunes = ['大吉', '吉', '中吉', '小吉', '末吉', '凶', '大凶'];
-        let num = Math.floor(Math.random() * fortunes.length);
+        let num = Math.floor(Math.random() * FORTUNES.length);
         this.scoreItems.unshift({
-            fortune: fortunes[num],
+            fortune: FORTUNES[num],
             created_at: new Date(),
         });
         this.setState({scores: this.scoreItems.slice()});
