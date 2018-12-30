@@ -40,7 +40,6 @@ const FORTUNES = ['大吉', '吉', '中吉', '小吉', '末吉', '凶', '大凶'
 // 親コンポーネント
 class App extends Component {
     state = { scores: [], index: 0 };
-    scoreItems = [];
 
     // タブの描画
     renderTabs = () => {
@@ -58,12 +57,12 @@ class App extends Component {
 
     // HomePage タブのボタンクリックでイベント発火
     handleOnClick = () => {
-        let num = Math.floor(Math.random() * FORTUNES.length);
-        this.scoreItems.unshift({
+        const num = Math.floor(Math.random() * FORTUNES.length);
+        const newItem = {
             fortune: FORTUNES[num],
             created_at: new Date(),
-        });
-        this.setState({scores: this.scoreItems.slice()});
+        };
+        this.setState({ scores: [ newItem, ...this.state.scores ] });
     };
 
     render() {
