@@ -46,7 +46,7 @@ class App extends Component {
         return [
             {
                 content: <HomePage key="Home" omikuji={this.handleOnClick} />,
-                tab: <Tab key="Home" label="Home" icon="md-home" />,
+                tab: <Tab key="Home" label="Home" icon="fa-home" />,
             },
             {
                 content: <SettingsPage key="settings" scores={this.state.scores} />,
